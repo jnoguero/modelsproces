@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static "style/base.css" %}"/>
+    <title>{% block title %}AgroService{% endblock %}</title>
+</head>
+<body>
+<div id="header">
+    {% block header %}
+    {% endblock %}
+</div>
+<div id="sidebar">
+    {% block sidebar %}
+        <ul>
+            <li><a href="/agriculture">Pagina Principal</a></li>
+            <li><a href="{% url 'agriculture:factura_create' %}">Nova Factura</a></li>
+            <li><a href="{% url 'agriculture:treball_create' %}">Nou Treball</a></li>
+            <li><a href="{% url 'agriculture:reg_create' %}">Nou Reg</a></li>
+            <li><a href="{% url 'logout' %}">Tancar la sesio</a></li>
+        </ul>{% endblock %}
+</div>
+<div id="content">
+    {% block content %}
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    {% endblock %}
+</div>
+<div id="footer">{% block footer %}{% endblock %}</div>
+</body>
+</html>

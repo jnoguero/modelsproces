@@ -1,0 +1,15 @@
+{% extends "agriculture/base.html" %}
+{% block content %}
+    <h1>
+        Restaurants
+        {% if user %}(<a href="{% url 'agriculture:reg_create' %}">Nou Reg</a>){% endif %}
+    </h1>
+    <ul>
+        {% for reg in latest_reg_list %}
+            <li><a href="{% url 'agriculture:reg_detail' reg.id %}">
+                {{ reg.name }}</a></li>
+        {% empty %}
+            <li>Ho sentim, no tens cap reg.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

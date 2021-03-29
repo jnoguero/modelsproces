@@ -1,0 +1,21 @@
+{% extends "agriculture/base.html" %}
+{% block content %}
+    <h1>
+        {{ restaurant.name }}
+        {% if user == restaurant.user %}
+            (<a href="{% url 'agriculture:factura_edit' factura.id %}">edit</a>)
+        {% endif %}
+    </h1>
+    <h2>Address:</h2>
+    <p>
+        {{ factura.street }}, {{ factura.number }} <br/>
+        {{ factura.zipcode }} {{ factura.city }} <br/>
+        {{ factura.stateOrProvince }} ({{ factura.country }})
+    </p>
+
+
+{% endblock %}
+{% block footer %}
+    Created by {{ factura.user }} on {{ factura.date }}
+{% endblock %}
+

@@ -1,0 +1,15 @@
+{% extends "agriculture/base.html" %}
+{% block content %}
+    <h1>
+        Restaurants
+        {% if user %}(<a href="{% url 'agriculture:treball_create' %}">Nou Treball</a>){% endif %}
+    </h1>
+    <ul>
+        {% for treball in latest_treball_list %}
+            <li><a href="{% url 'agriculture:treball_detail' treball.id %}">
+                {{ treball.name }}</a></li>
+        {% empty %}
+            <li>Ho sentim, no tens cap factura.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

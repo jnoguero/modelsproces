@@ -1,0 +1,15 @@
+{% extends "agriculture/base.html" %}
+{% block content %}
+    <h1>
+        Restaurants
+        {% if user %}(<a href="{% url 'agriculture:factura_create' %}">Nova Factura</a>){% endif %}
+    </h1>
+    <ul>
+        {% for factura in latest_factura_list %}
+            <li><a href="{% url 'agriculture:factura_detail' factura.id %}">
+                {{ factura.name }}</a></li>
+        {% empty %}
+            <li>Ho sentim, no tens cap factura.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

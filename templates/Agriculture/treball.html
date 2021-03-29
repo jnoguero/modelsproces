@@ -1,0 +1,20 @@
+{% extends "agriculture/base.html" %}                                                             
+{% block content %}                                                                               
+    <h1>                                                                                          
+        {{ treball.name }}                                                                     
+        {% if user == treball.user %}                                                          
+            (<a href="{% url 'agriculture:treball_edit' treball.id %}">edit</a>)                  
+        {% endif %}                                                                               
+    </h1>                                                                                         
+    <h2>Address:</h2>                                                                             
+    <p>                                                                                           
+        {{ treball.street }}, {{ treball.number }} <br/>                                          
+        {{ treball.zipcode }} {{ treball.city }} <br/>                                            
+        {{ treball.stateOrProvince }} ({{ treball.country }})                                     
+    </p>                                                                                          
+                                                                                                  
+                                                                                                  
+{% endblock %}                                                                                    
+{% block footer %}                                                                                
+    Created by {{ treball.user }} on {{ treball.date }}                                           
+{% endblock %} 

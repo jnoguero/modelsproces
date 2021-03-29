@@ -1,0 +1,20 @@
+{% extends "agriculture/base.html" %}                                                             
+{% block content %}                                                                               
+    <h1>                                                                                          
+        {{ reg.name }}
+        {% if user == reg.user %}
+            (<a href="{% url 'agriculture:reg_edit' reg.id %}">edit</a>)
+        {% endif %}                                                                               
+    </h1>                                                                                         
+    <h2>Address:</h2>                                                                             
+    <p>                                                                                           
+        {{ reg.street }}, {{ reg.number }} <br/>
+        {{ reg.zipcode }} {{ reg.city }} <br/>
+        {{ reg.stateOrProvince }} ({{ reg.country }})
+    </p>                                                                                          
+                                                                                                  
+                                                                                                  
+{% endblock %}                                                                                    
+{% block footer %}                                                                                
+    Created by {{ reg.user }} on {{ reg.date }}
+{% endblock %}                                                                                    
